@@ -7,6 +7,7 @@ import { Bloom, N8AO, SMAA, EffectComposer } from '@react-three/postprocessing'
 import { useRef } from "react";
 import { Mesh } from "three";
 import { KernelSize } from "postprocessing";
+import DecryptedText from './decrypttext';
 
 function Shape() {
   const meshRef = useRef<Mesh>(null);
@@ -180,17 +181,17 @@ export const Hero: React.FC<HeroProps> = ({ title, tagline, microStory, descript
       </div>
       <div className="absolute bottom-4 left-4 md:bottom-10 md:left-10 z-20 max-w-md">
         <h1 className="text-2xl md:text-3xl font-light tracking-tight mb-2 text-white">
-          {title}
+          <DecryptedText text={title} animateOn="view" revealDirection="center" parentClassName="" className="text-white" speed={110} maxIterations={10} />
         </h1>
 
         {tagline ? (
           <h2 className="text-sm md:text-base font-medium mb-3 text-white/80 tracking-tight">
-            {tagline}
+            <DecryptedText text={tagline} animateOn="view" revealDirection="center" parentClassName="" className="text-white/80" speed={120} maxIterations={11} />
           </h2>
         ) : null}
 
         <p className="font-mono text-xs md:text-sm leading-relaxed font-light tracking-tight text-white/50">
-          {microStory ?? description}
+          <DecryptedText text={microStory ?? description ?? ''} animateOn="view" revealDirection="center" parentClassName="" className="text-white/50" speed={130} maxIterations={17} />
         </p>
       </div>
     </div>
