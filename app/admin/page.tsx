@@ -2,6 +2,7 @@
 
 // Hooks
 import { useGetIssues } from "@/hooks/issues/use-get-issues";
+import { Issue } from "@/types";
 
 export default function AdminPage() {
     const { data, isLoading, error } = useGetIssues("user.department"); // to be replaced with user.department
@@ -9,7 +10,7 @@ export default function AdminPage() {
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
-    const issues = data;
+    const issues: Issue[] = Array.isArray(data) ? data : [data];
 
     if (issues.length === 0) {
         return <div>No issues found.</div>;

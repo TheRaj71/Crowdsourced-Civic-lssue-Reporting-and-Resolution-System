@@ -24,8 +24,10 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-    const { searchParams } = new URL(request.url);
-    const department = searchParams.get("department") as string;
+    
+    // commented to avoid warning in developement stage.
+    // const { searchParams } = new URL(request.url);
+    // const department = searchParams.get("department") as string;
 
     const dummyData = [
         {
