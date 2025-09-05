@@ -29,7 +29,7 @@ export default function AdminPage() {
                     </tr>
                 </thead>
                 <tbody>
-                    {issues.map((issue: any, idx: number) => (
+                    {issues.map((issue: Issue, idx: number) => (
                         <tr key={issue.id ?? idx}>
                             <td style={{ padding: "8px", borderBottom: "1px solid #f3f4f6" }}>{issue.title ?? "-"}</td>
                             <td style={{ padding: "8px", borderBottom: "1px solid #f3f4f6" }}>{issue.description ?? "-"}</td>
